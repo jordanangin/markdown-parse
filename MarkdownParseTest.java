@@ -36,4 +36,41 @@ public class MarkdownParseTest {
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         assertEquals(List.of(),links);
     }
+//------------------------------------------------------------------
+//------------------------------------------------------------------
+    @Test
+    public void getLinks() throws IOException{
+        Path fileName = Path.of("Test-file2.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        assertEquals(links.size(),0);
+    }
+
+    @Test
+    public void getLinks2() throws IOException{
+        Path fileName = Path.of("Test-file3.md");
+	    String contents = Files.readString(fileName);
+        try {
+            MarkdownParse.getLinks(contents);
+            fail();
+        }
+        catch(IndexOutOfBoundsException e) {
+            //test case throws exception
+            //test case passed successfully
+        }
+    }
+
+    @Test
+    public void getLinks3() throws IOException{
+        Path fileName = Path.of("Test-file4.md");
+	    String contents = Files.readString(fileName);
+        try {
+            MarkdownParse.getLinks(contents);
+            fail();
+        }
+        catch(IndexOutOfBoundsException e) {
+            //test case throws exception
+            //test case passed successfully
+        }
+    }
 }
