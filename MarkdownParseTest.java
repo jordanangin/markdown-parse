@@ -73,4 +73,9 @@ public class MarkdownParseTest {
             //test case passed successfully
         }
     }
+
+    @Test
+    public void additionMistake() {
+        assertEquals(10, 1 + 1);
+    }
 }
