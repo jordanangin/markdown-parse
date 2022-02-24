@@ -56,14 +56,12 @@ public class MarkdownParse {
                   || closeParen == -1 || openParen == -1) {
                 return toReturn;
             }
-            String potentialLink = markdown.substring(openParen + 1, closeParen);
-            if(potentialLink.indexOf(" ") == -1 && potentialLink.indexOf("\n") == -1) {
-                toReturn.add(potentialLink);
-                currentIndex = closeParen + 1;
-            }
-            else {
-                currentIndex = currentIndex + 1;
-            }
+            // if(markdown.charAt(nextOpenBracket - 1) == '!') {
+            //     currentIndex = closeParen + 1;
+            //     continue;
+            // }
+            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            currentIndex = closeParen + 1;
         }
         return toReturn;
     }
